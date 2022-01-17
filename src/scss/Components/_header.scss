@@ -1,0 +1,89 @@
+@import "../Utilities/mixins";
+
+.header {
+  @include flex(row, space-between, center);
+  margin-bottom: 3.8125rem;
+  // overflow: hidden;
+
+  &__logo {
+    cursor: pointer;
+    transition: all .3s ease-in;
+
+    &:hover {
+      opacity: .75;
+    }
+  }
+
+  &__filter {
+    @include flex(row, space-around, center);
+    font-family: "Mulish", sans-serif;
+    border-radius: 16px;
+    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.1);
+    padding: 1.125rem 1rem;
+    font-size: 0.875rem;
+
+    & > * {
+      cursor: pointer;
+      transition: all 0.3s ease-in;
+
+      &:hover {
+        opacity: 0.5;
+        // background: rgba(79, 79, 79, 0.4);
+      }
+    }
+
+    &__location {
+      color: #333333;
+      padding-right: 1rem;
+    }
+
+    &__guests {
+      padding: 0 1rem;
+      color: #bdbdbd;
+      height: 100%;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 57px;
+        background-color: #f2f2f2;
+        bottom: -18px;
+        left: 0;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 57px;
+        background-color: #f2f2f2;
+        bottom: -18px;
+        right: 0;
+      }
+    }
+
+    &__search {
+      padding-left: 1rem;
+    }
+  }
+}
+
+@media (max-width: 1287px) {
+  .header {
+    margin-bottom: 2.3125rem;
+  }
+}
+
+@media (max-width: 475px) {
+  .header {
+    flex-direction: column;
+    align-items: baseline;
+    gap: 2rem;
+
+    &__filter {
+      margin: 0 auto;
+      width: 85%;
+    }
+  }
+}
